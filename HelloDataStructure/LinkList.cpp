@@ -128,7 +128,7 @@ bool ListDelete(LinkList &L, int pos)
     }
     return false;
 }
-// 快慢指针法 将链表等分为两部分 返回第2部分的头指针 
+// 快慢指针法 将链表等分为两部分 返回第2部分的头指针
 LinkList FindMiddle(LinkList L)
 {
     LNode *p = L->next, *q = L->next; // p每次移动两个节点 q每次移动一个节点
@@ -137,7 +137,7 @@ LinkList FindMiddle(LinkList L)
         p = p->next->next;
         q = q->next;
     }
-    LinkList tmpL = (LNode*)malloc(sizeof(LNode));
+    LinkList tmpL = (LNode *)malloc(sizeof(LNode));
     tmpL->next = q->next;
     q->next = nullptr;
     return tmpL;
@@ -179,10 +179,11 @@ LinkList ListReverse(LinkList &L)
 // 两个单链表合并
 LinkList ListMerge(LinkList &L1, LinkList &L2)
 {
-    LNode * p = L1->next;
-    LNode * q = L2->next;
+    LNode *p = L1->next;
+    LNode *q = L2->next;
     LinkList current = L1;
-    while(p != nullptr && q != nullptr) {
+    while (p != nullptr && q != nullptr)
+    {
         current->next = p;
         current = current->next;
         p = p->next;
@@ -190,10 +191,12 @@ LinkList ListMerge(LinkList &L1, LinkList &L2)
         current = current->next;
         q = q->next;
     }
-    if(p != nullptr) {
+    if (p != nullptr)
+    {
         current->next = p;
     }
-    if(q != nullptr) {
+    if (q != nullptr)
+    {
         current->next = q;
     }
     return L1;
