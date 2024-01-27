@@ -4,37 +4,45 @@
 using namespace std;
 
 typedef int ElemType;
-typedef struct {
+typedef struct
+{
     ElemType data[MAXSIZE];
     int top;
-}SqStack;
+} SqStack;
 
 // 初始化
-void initStack(SqStack &s) {
+void initStack(SqStack &s)
+{
     s.top = -1;
 }
 
 // 判断栈是否为空
-bool empty(SqStack &s) {
+bool empty(SqStack &s)
+{
     return s.top == -1;
 }
 
 // 入栈
-bool push(SqStack &s, ElemType e) {
+bool push(SqStack &s, ElemType e)
+{
     // 判断栈是否满
-    if(s.top == MAXSIZE-1) return false;
+    if (s.top == MAXSIZE - 1)
+        return false;
     s.data[++s.top] = e;
     return true;
 }
 
 // 出栈
-bool pop(SqStack &s, ElemType &e) {
-    if(s.top == -1) return false;
+bool pop(SqStack &s, ElemType &e)
+{
+    if (s.top == -1)
+        return false;
     e = s.data[s.top];
     s.top--;
     return true;
 }
-int main() {
+int main()
+{
     SqStack s;
     initStack(s);
     cout << boolalpha << empty(s) << endl;
@@ -42,7 +50,8 @@ int main() {
     push(s, 2);
     push(s, 3);
     ElemType e;
-    if(pop(s, e)) {
+    if (pop(s, e))
+    {
         cout << "e: " << e << endl;
     }
     return 0;
